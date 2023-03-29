@@ -1,35 +1,29 @@
-import React, { Component } from "react"
+import { Component } from "react";
+import "./App.css"
+import Header from "./components/Header";
+import Game from "./components/Game";
 
-function MemoryGame (){
-  const [sequence,setSequence]= useState([]);
-  const [currentInput, setCurrentInput]= useState("")
-  const [inputIndex, setInputIndex]= useState(0)
-  const [score, setScore] = useState(0);
-
-const generateSequence = () => {
-  const newSequence = [];
-  for (let i=0; i <10;i++){
-    const randomNumber = Math.floor(Math.random()*20);
-    newSequence.push(randomNumber);
+class App extends Component{
+  constructor(){
+    super();
+  
+    this.state = {
+      currentScore:0,
+      bestScore:0,
+    };
   }
-}
-
-
-
-
-
-
-
-}
-
 
 render(){
+  const {currentScore,bestScore} = this.state;
   return(
-    <div>
+    <div className="App">
+      <Header currentScore={currentScore} bestScore={bestScore} />
+      <Game />
+
     </div>
   );
 }
+}
 
 
-
-export default MemoryGame
+export default App

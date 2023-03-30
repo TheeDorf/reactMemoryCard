@@ -2,7 +2,7 @@ import React, { Component } from "react"
 
 const items = [];
 
-for (let i =o; i<10; i++){
+for (let i =0; i<10; i++){
     items.push({
         id:i,
         content: String.fromCharCode(i),
@@ -15,23 +15,24 @@ class Game extends Component{
         super(props)
 
         this.state = {
-            items:[
-                {}
-            ]
-        }
-        randomItem(){
-            let rand = Math.floor(Math.random() * items={.length});
+            items,
+        };
+    }
+        randomItemIndex(){
+            let rand = Math.floor(Math.random() * items.length);
             return rand;
           
         }
-    }
+    
     render(){
+        const {items} = this.state;
+        const item = items[this.randomItemIndex()].content
         return(
             <main className="d-flex justify-content-around align-items-center">
-                <p>Item</p>
-                <p>Prompt</p>
+                <p>{items[this.randomItemIndex()].content}</p>
+               <Prompt />
             </main>
-        )
+        );
     }
 }
 
